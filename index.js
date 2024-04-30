@@ -4,7 +4,7 @@ const axios = require('axios');
 // API Endpoint для получения курсов криптовалют
 const cryptoAPIEndpoint = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=usd';
 
-const token = '6812274921:AAGP7jBxt4hmB6X8t8vkt0nQX6WoRFBGWGo';
+const token = '6516910330:AAHWl3iIVa5FMj8m2VMh3I7AZV6eZORAH84';
 const bot = new TelegramBot(token, { polling: true });
 
 bot.onText(/\/start/, (msg) => {
