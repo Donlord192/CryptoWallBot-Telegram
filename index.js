@@ -13,7 +13,7 @@ bot.onText(/\/start/, (msg) => {
     reply_markup: {
       keyboard: [
         [{ text: 'Курсы криптовалют💹' }],
-        [{ text: 'Пожертвования💰' }, { text: 'Премиум💎' }],
+        [{ text: 'Пожертвования💰' }]
       ],
       resize_keyboard: true,
     },
@@ -23,11 +23,6 @@ bot.onText(/\/start/, (msg) => {
 bot.onText(/Пожертвования💰/, (msg) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId, 'Вы можете сделать пожертвование (USDT TRC20) на адрес: TDkMqnph4VWzgcEL3i5V4PJqWJ3hTbWuR6');
-});
-
-bot.onText(/Премиум💎/, (msg) => {
-  const chatId = msg.chat.id;
-  bot.sendMessage(chatId, 'Вы получили премиум доступ!');
 });
 
 bot.onText(/Курсы криптовалют💹/, async (msg) => {
