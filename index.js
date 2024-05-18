@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios');
 
 // API Endpoint для получения курсов криптовалют
-const cryptoAPIEndpoint = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,ethereum-classic,solana,tron,litecoin,ton-crystal,arbitrum&vs_currencies=usd';
+const cryptoAPIEndpoint = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,ethereum-classic,solana,tron,litecoin,ton-crystal,arbitrum,notcoin&vs_currencies=usd';
 
 const token = '6516910330:AAHWl3iIVa5FMj8m2VMh3I7AZV6eZORAH84';
 const bot = new TelegramBot(token, { polling: true });
@@ -57,7 +57,10 @@ bot.onText(/Курсы криптовалют💹/, async (msg) => {
     if (cryptoData.arbitrum) {
       message += `<a href="https://arbitrum.io/">⚪️ARB</a> (Arbitrum): $${cryptoData.arbitrum.usd}\n\n`;
     }
-
+    if (cryptoData.notcoin) {
+      message += `<a href="https://notcoin.org/">⚫️NOT</a> (Notcoin): $${cryptoData.notcoin.usd}\n\n`;
+    }
+    
     bot.sendMessage(chatId, message, { parse_mode: 'HTML', disable_web_page_preview: true });
   } catch (error) {
     console.error('Ошибка при получении курсов криптовалют:', error);
